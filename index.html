@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Name — Landing Page</title>
-  <meta name="description" content="A short, conversion-focused landing page." />
+  <title>02100 — Urban Safety Wearable</title>
+  <meta name="description" content="02100 is a discreet urban safety wearable that helps interrupt the freeze response and regain control. Join the pre-order list." />
+
   <style>
     :root{
       --bg:#0b0f17;
@@ -30,181 +31,270 @@
         var(--bg);
       line-height:1.45;
     }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1120px; margin:0 auto; padding:24px}
 
-    /* Top nav */
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+
+    /* NAV */
     .nav{
-      position:sticky; top:0; z-index:50;
+      position:sticky;
+      top:0;
+      z-index:50;
       backdrop-filter: blur(10px);
       background: rgba(11,15,23,.65);
-      border-bottom: 1px solid var(--line);
+      border-bottom:1px solid var(--line);
     }
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px}
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.3px;
+    }
     .logo{
-      width:36px; height:36px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(34,197,94,1));
-      box-shadow: 0 12px 30px rgba(124,58,237,.25);
+      width:36px;height:36px;border-radius:12px;
+      background: linear-gradient(135deg,#7c3aed,#22c55e);
+      box-shadow:0 12px 30px rgba(124,58,237,.25);
     }
-    .nav-links{display:flex; gap:18px; color:var(--muted); font-weight:600}
+    .nav-links{
+      display:flex;
+      gap:18px;
+      color:var(--muted);
+      font-weight:600;
+    }
     .nav-links a:hover{color:var(--text)}
 
-    /* Buttons */
+    /* BUTTONS */
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 16px; border-radius:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.04);
-      color:var(--text);
       font-weight:700;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      transition:.12s ease;
       cursor:pointer;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
-    .btn.primary{
-      border-color: rgba(124,58,237,.45);
-      background: linear-gradient(135deg, rgba(124,58,237,.92), rgba(124,58,237,.62));
-      box-shadow: 0 18px 45px rgba(124,58,237,.18);
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.18);
     }
-    .btn.primary:hover{border-color: rgba(124,58,237,.70)}
-    .btn.ghost{background: transparent}
+    .btn.primary{
+      background:linear-gradient(135deg,#7c3aed,#5b21b6);
+      border-color:rgba(124,58,237,.6);
+      box-shadow:0 18px 45px rgba(124,58,237,.18);
+    }
 
-    /* Hero */
-    .hero{padding:54px 0 28px}
+    /* HERO */
+    .hero{padding:56px 0}
     .grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns:1.1fr .9fr;
       gap:26px;
       align-items:stretch;
     }
     .kicker{
-      display:inline-flex; gap:10px; align-items:center;
+      display:inline-flex;
+      gap:10px;
       padding:8px 12px;
       border:1px solid var(--line);
       border-radius:999px;
-      background: rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
       color:var(--muted);
       font-weight:600;
       width:fit-content;
     }
-    .dot{width:8px; height:8px; border-radius:99px; background: var(--accent2)}
-    h1{font-size:52px; line-height:1.03; margin:14px 0 12px; letter-spacing:-.8px}
-    .sub{color:var(--muted); font-size:18px; max-width:52ch}
-    .cta-row{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
-    .trust{margin-top:18px; color:var(--muted); font-weight:600; font-size:14px}
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--accent2)}
+    h1{
+      font-size:52px;
+      line-height:1.05;
+      margin:14px 0 12px;
+      letter-spacing:-.8px;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:18px;
+      max-width:54ch;
+    }
+    .cta-row{
+      display:flex;
+      gap:12px;
+      margin-top:22px;
+      flex-wrap:wrap;
+    }
+    .trust{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:600;
+    }
 
+    /* PANEL (higher contrast to avoid “white on white”) */
     .panel{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(8,12,20,.92), rgba(9,14,24,.72));
       box-shadow: var(--shadow);
       overflow:hidden;
     }
     .panel-inner{padding:18px}
-    .mock{
-      height: 100%;
-      min-height: 320px;
+
+    /* Story module */
+    .story{
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
-      gap:16px;
+      gap:12px;
+      height:100%;
     }
-    .mock-top{display:flex; align-items:center; justify-content:space-between; gap:10px}
-    .pill{padding:8px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-weight:700; font-size:12px}
-    .bars{display:flex; gap:6px}
-    .bar{width:10px; height:10px; border-radius:999px; border:1px solid var(--line)}
-    .bar:nth-child(1){background: rgba(124,58,237,.35)}
-    .bar:nth-child(2){background: rgba(34,197,94,.25)}
-
-    .metric{
-      padding:14px;
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(15,23,42,.55);
+    .story-quote{
+      margin:0;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.28);
+      color: var(--text);
     }
-    .metric .label{color:var(--muted); font-weight:700; font-size:12px}
-    .metric .value{font-size:28px; font-weight:850; margin-top:4px}
-    .metric .hint{color:var(--muted); font-weight:650; font-size:13px; margin-top:6px}
-    .metric-grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .story-quote strong{font-weight:850}
+    .story-meta{
+      color: var(--muted);
+      font-weight:650;
+      font-size:13px;
+      line-height:1.35;
+    }
 
-    /* Sections */
-    section{padding:34px 0}
-    .section-title{font-size:22px; margin:0 0 10px; letter-spacing:-.3px}
-    .section-sub{color:var(--muted); margin:0 0 18px; max-width:70ch}
+    /* Poster-style source card */
+    .poster{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px;
+      border-radius:16px;
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(255,255,255,.03);
+    }
+    .poster-img{
+      width:88px;
+      height:110px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(135deg, rgba(124,58,237,.28), rgba(34,197,94,.18)),
+        rgba(255,255,255,.04);
+      display:grid;
+      place-items:center;
+      color: rgba(255,255,255,.90);
+      font-weight:900;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      font-size:12px;
+      flex: 0 0 auto;
+    }
+    .poster-body{display:flex;flex-direction:column;gap:6px}
+    .poster-title{margin:0;font-weight:850}
+    .poster-note{margin:0;color:var(--muted);font-size:13px;font-weight:650}
+    .poster-link{
+      color: rgba(255,255,255,.92);
+      font-weight:800;
+      font-size:13px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .poster-link:hover{opacity:.9}
 
-    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    /* SECTIONS */
+    section{padding:36px 0}
+    .section-title{font-size:22px;margin:0 0 10px;letter-spacing:-.3px}
+    .section-sub{color:var(--muted);margin:0 0 18px;max-width:70ch}
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
     .card{
       padding:16px;
       border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.03);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.03);
     }
-    .card h3{margin:6px 0 8px; font-size:16px}
-    .card p{margin:0; color:var(--muted)}
-    .icon{
-      width:40px; height:40px; border-radius: 14px;
-      display:grid; place-items:center;
-      background: rgba(124,58,237,.18);
-      border: 1px solid rgba(124,58,237,.25);
-    }
+    .card h3{margin:6px 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--muted)}
 
-    /* CTA band */
+    /* CTA */
     .cta-band{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:14px;
-      align-items:center;
+      grid-template-columns:1.1fr .9fr;
+      gap:16px;
       padding:18px;
+      align-items:center;
     }
-    .cta-band h2{margin:0; font-size:20px; letter-spacing:-.25px}
-    .cta-band p{margin:6px 0 0; color:var(--muted)}
-
+    .cta-band h2{margin:0;font-size:20px;letter-spacing:-.25px}
+    .cta-band p{margin:6px 0 0;color:var(--muted)}
     .form{
-      display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
+      display:flex;
+      gap:10px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
     }
     input{
       padding:12px 14px;
-      border-radius: 14px;
+      border-radius:14px;
       border:1px solid var(--line);
-      background: rgba(0,0,0,.25);
-      color: var(--text);
-      min-width: 240px;
+      background:rgba(0,0,0,.25);
+      color:var(--text);
+      min-width:240px;
       outline:none;
     }
-    input:focus{border-color: rgba(124,58,237,.55); box-shadow: 0 0 0 4px rgba(124,58,237,.15)}
+    input:focus{
+      border-color: rgba(124,58,237,.55);
+      box-shadow: 0 0 0 4px rgba(124,58,237,.15);
+    }
 
-    /* Footer */
-    footer{padding:26px 0 40px; color:var(--muted)}
-    .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:16px}
+    footer{padding:28px 0;color:var(--muted)}
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+      flex-wrap:wrap;
+    }
 
-    /* Mobile */
-    @media (max-width: 920px){
+    @media(max-width:900px){
       h1{font-size:42px}
-      .grid{grid-template-columns: 1fr;}
-      .cta-band{grid-template-columns: 1fr}
+      .grid{grid-template-columns:1fr}
+      .cta-band{grid-template-columns:1fr}
       .form{justify-content:flex-start}
-      .cards{grid-template-columns: 1fr}
+      .cards{grid-template-columns:1fr}
       .nav-links{display:none}
     }
   </style>
 </head>
+
 <body>
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="Home">
         <span class="logo" aria-hidden="true"></span>
-        <span>Project Name</span>
+        <span>02100</span>
       </a>
+
       <nav class="nav-links" aria-label="Primary">
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <div style="display:flex; gap:10px; align-items:center;">
-        <a class="btn ghost" href="#faq">Learn more</a>
-        <a class="btn primary" href="#cta">Get updates</a>
-      </div>
+
+      <a class="btn primary" href="#cta">Pre-order list</a>
     </div>
   </header>
 
@@ -212,92 +302,109 @@
     <section class="hero">
       <div class="grid">
         <div>
-          <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Shipping soon — early access list open</span></div>
-          <h1>A clean landing page that sells your idea in 30 seconds.</h1>
-          <p class="sub">Use this template for a product, game, or startup. Swap the copy, drop your logo, and you have a credible page that can collect emails.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#cta">Join the waitlist</a>
-            <a class="btn" href="#features">See features</a>
+          <div class="kicker">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Pre-orders opening soon</span>
           </div>
-          <div class="trust">No spam. One email when you launch.</div>
+
+          <h1>Interrupt the freeze response. Regain control.</h1>
+
+          <p class="sub">
+            02100 is a discreet urban safety bracelet designed to help people move from “freeze” to action.
+            It uses a controlled EMS stimulus plus a brief cold stimulus to disrupt immobility and restore agency,
+            when seconds matter.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#cta">Join pre-order list</a>
+            <a class="btn" href="#features">Explore device</a>
+          </div>
+
+          <div class="trust">No spam. Early access only.</div>
         </div>
 
-        <div class="panel" aria-label="Product preview">
-          <div class="panel-inner mock">
-            <div class="mock-top">
-              <div class="pill">Live preview</div>
-              <div class="bars" aria-hidden="true">
-                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <!-- Updated right-side panel: story + sources (NO IPV framing) -->
+        <div class="panel" aria-label="Story + sources panel">
+          <div class="panel-inner story">
+
+            <p class="story-quote">
+              “I thought I would react instantly. Instead, my body went quiet.
+              My hands felt useless. My brain was loud, but my legs didn’t move.
+              Later I kept replaying it and blaming myself for ‘doing nothing’.”
+              <br><br>
+              <strong>02100 is built for that exact gap: when intention exists, but action fails.</strong>
+            </p>
+
+            <div class="story-meta">
+              Research on emergency behavior suggests only <strong>10–25%</strong> of people act effectively,
+              while <strong>~65–80%</strong> become stunned or indecisive in the moment. :contentReference[oaicite:1]{index=1}
+              <br>
+              In a threat-stressor study, <strong>13%</strong> reported immobility and <strong>20%</strong> a strong urge to flee,
+              supporting “freeze” as a measurable stress response. :contentReference[oaicite:2]{index=2}
+            </div>
+
+            <div class="poster" aria-label="Sources poster">
+              <div class="poster-img" aria-hidden="true">Sources</div>
+              <div class="poster-body">
+                <p class="poster-title">Evidence behind “freeze”</p>
+                <p class="poster-note">
+                  Emergency behavior distribution + measured immobility in a threat stressor.
+                  This matches our design goal: safely interrupt freeze and restore action. :contentReference[oaicite:3]{index=3}
+                </p>
+                <a class="poster-link" target="_blank" rel="noreferrer"
+                   href="https://knowledge.lancashire.ac.uk/id/eprint/9573/ :contentReference[oaicite:4]{index=4}0Paper%202012.pdf">
+                  Poster: Human behaviour in emergency situations (2012)
+                </a>
+                <a class="poster-link" target="_blank" rel="noreferrer"
+                   href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2489204/">
+                  Link: Exploring human freeze responses to a threat stressor (PMC)
+                </a>
               </div>
             </div>
-            <div class="metric-grid">
-              <div class="metric">
-                <div class="label">Conversion-ready</div>
-                <div class="value">3 sections</div>
-                <div class="hint">Hero, value props, CTA</div>
-              </div>
-              <div class="metric">
-                <div class="label">Setup time</div>
-                <div class="value">10 min</div>
-                <div class="hint">Replace text, deploy</div>
-              </div>
-              <div class="metric">
-                <div class="label">Responsive</div>
-                <div class="value">Mobile</div>
-                <div class="hint">Works on small screens</div>
-              </div>
-              <div class="metric">
-                <div class="label">No build tools</div>
-                <div class="value">1 file</div>
-                <div class="hint">Just HTML + CSS</div>
-              </div>
-            </div>
-            <div class="metric" style="border-style:dashed;">
-              <div class="label">Replace this box</div>
-              <div class="hint">Put a screenshot, trailer, or product mock here.</div>
-            </div>
+
           </div>
         </div>
+
       </div>
     </section>
 
     <section id="features">
-      <h2 class="section-title">Features that matter</h2>
-      <p class="section-sub">This structure is intentionally minimal. It answers: what is it, why should I care, and what do I do next.</p>
+      <h2 class="section-title">What 02100 does</h2>
+      <p class="section-sub">
+        In a high-risk moment, many people don’t get fight-or-flight. They freeze.
+        02100 is designed to safely disrupt immobility using controlled EMS + brief cold exposure,
+        helping the user transition back to intentional action. :contentReference[oaicite:5]{index=5}
+      </p>
+
       <div class="cards">
         <div class="card">
-          <div class="icon" aria-hidden="true">▦</div>
-          <h3>Clear value props</h3>
-          <p>Three cards: pain solved, benefit delivered, proof/credibility.</p>
+          <h3>Freeze interruption</h3>
+          <p>Controlled EMS + brief cold stimulus to break the “:contentReference[oaicite:6]{index=6}:contentReference[oaicite:7]{index=7}</p>
         </div>
         <div class="card">
-          <div class="icon" aria-hidden="true">◷</div>
-          <h3>Fast loading</h3>
-          <p>No frameworks, no heavy assets, no dependency chains.</p>
+          <h3>Designed for automation</h3>
+          <p>Biometrics + logic to reduce misfires, plus easy cancel/override. :contentReference[oaicite:8]{index=8}</p>
         </div>
         <div class="card">
-          <div class="icon" aria-hidden="true">✦</div>
-          <h3>Modern visual style</h3>
-          <p>Dark gradient, subtle borders, soft shadows, large type.</p>
+          <h3>Safety-first engineering</h3>
+          <p>Watchdog logic and conservative triggers built around uncertainty:contentReference[oaicite:9]{index=9}:contentReference[oaicite:10]{index=10}</p>
         </div>
       </div>
     </section>
 
     <section id="how">
       <h2 class="section-title">How it works</h2>
-      <p class="section-sub">Keep this tight. If your product needs a long explanation, the page will leak attention.</p>
+
       <div class="cards">
-        <div class="card">
-          <h3>1) One-sentence promise</h3>
-          <p>Say what the user gets. Avoid internal jargon.</p>
+        <div class=":contentReference[oaicite:11]{index=11}1) Wear</h3>
+          <p>Bracelet designed for small form factor + skin contact materials. :contentReference[oaicite:12]{index=12}</p>
         </div>
         <div class="card">
-          <h3>2) Three benefits</h3>
-          <p>Make them measurable or concrete: time saved, risk reduced, clarity gained.</p>
-        </div>
+          <h3>2) Detect</h3>
+          <p>Heart-rate sensing (PPG) + system logic; automation is a core focus. :contentReference[oaicite:13]{index=13}:contentReference[oaicite:14]{index=14}  </div>
         <div class="card">
-          <h3>3) Single action</h3>
-          <p>Waitlist, demo request, or purchase. Don’t split attention.</p>
+          <h3>3) Interrupt + regain control</h3>
+          <p>EMS + cold plate stimulus intended to help transition out of:contentReference[oaicite:15]{index=15}:contentReference[oaicite:16]{index=16}</p>
         </div>
       </div>
     </section>
@@ -306,61 +413,65 @@
       <div class="panel">
         <div class="cta-band">
           <div>
-            <h2>Get launch updates</h2>
-            <p>Drop your email. Replace this with your real newsletter provider later.</p>
+            <h2>Join the:contentReference[oaicite:17]{index=17}            <p>Be notified when production opens.</p>
           </div>
+
           <form class="form" onsubmit="return fakeSubmit(event)">
             <label style="display:none" for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@domain.com" required />
-            <button class="btn primary" type="submit">Join</button>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required />
+            <button class="btn primary" type="submit">Reserve</button>
           </form>
         </div>
       </div>
-      <p id="msg" class="trust" style="display:none; margin-top:12px;"></p>
+
+      <p id="msg" class="trust" style="display:none;margin-top:12px;"></p>
     </section>
 
     <section id="faq">
       <h2 class="section-title">FAQ</h2>
+
       <div class="cards">
         <div class="card">
-          <h3>Can I deploy this quickly?</h3>
-          <p>Yes. Save as <strong>index.html</strong> and host on GitHub Pages, Netlify, Vercel, or any static host.</p>
+          <h3>What problem are you solving?</h3>
+          <p>Freeze and delayed response in urban high-risk moments; the goal is to restore action. :contentReference[oaicite:18]{index=18}</p>
         </div>
+
         <div class="card">
-          <h3>Where do I add analytics?</h3>
-          <p>Paste your tracking script right before <strong>&lt;/head&gt;</strong> (Plausible, GA4, etc.).</p>
-        </div>
+          <h3>Is this a medical device?</h3>
+          <p>No. 02100 is an urban safety wearable, not a diagnostic or medi:contentReference[oaicite:19]{index=19}   </div>
+
         <div class="card">
-          <h3>How do I connect email capture?</h3>
-          <p>Replace the form handler with your provider (Mailchimp, ConvertKit, Buttondown) or a small serverless function.</p>
+          <h3>What’s next?</h3>
+          <p>Prototype build, automation work, testing protocol, and app development. :contentReference[oaicite:20]{index=20}</p>
         </div>
       </div>
     </section>
 
     <footer>
       <div class="foot">
-        <div>© <span id="year"></span> Project Name. All rights reserved.</div>
-        <div style="display:flex; gap:14px;">
-          <a href="#top">Back to top</a>
+        <div>© <span id="year"></span> 02100.</div>
+        <div style="display:fl:contentReference[oaicite:21]{index=21}    <a href="#top">Top</a>
           <a href="#features">Features</a>
-          <a href="#cta">Waitlist</a>
+          <a href="#cta">Pre-order</a>
         </div>
       </div>
     </footer>
   </main>
 
   <script>
-    // Minimal, no-backend demo submit.
     function fakeSubmit(e){
       e.preventDefault();
-      const input = document.getElementById('email');
-      const msg = document.getElementById('msg');
-      msg.style.display = 'block';
-      msg.textContent = `Saved: ${input.value}. (Demo only — connect a real provider to collect emails.)`;
-      input.value = '';
+      const msg = document.getElementById("msg");
+      const input = document.getElementById("email");
+
+      msg.style.display = "block";
+      msg.textContent = "Saved — you'll be notified when pre-orders open.";
+
+      input.value = "";
       return false;
     }
-    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
