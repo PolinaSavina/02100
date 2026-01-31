@@ -101,6 +101,11 @@
       border-color:rgba(124,58,237,.6);
       box-shadow:0 18px 45px rgba(124,58,237,.18);
     }
+    .btn:disabled{
+      opacity:.65;
+      cursor:not-allowed;
+      transform:none;
+    }
 
     /* HERO */
     .hero{padding:56px 0}
@@ -230,6 +235,15 @@
     input:focus{
       border-color: rgba(124,58,237,.55);
       box-shadow: 0 0 0 4px rgba(124,58,237,.15);
+    }
+
+    /* message */
+    #msg{
+      display:none;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:650;
     }
 
     /* Footer */
@@ -393,15 +407,23 @@
             <p>Be notified when production opens.</p>
           </div>
 
-          <form class="form" onsubmit="return fakeSubmit(event)">
+          <!-- FORM: Formspree -->
+          <form class="form" id="preorderForm" action="https://formspree.io/f/mnjveqyv" method="POST">
             <label style="display:none" for="email">Email</label>
             <input id="email" name="email" type="email" placeholder="you@email.com" required />
-            <button class="btn primary" type="submit">Reserve</button>
+
+            <!-- metadata -->
+            <input type="hidden" name="source" value="02100-landing" />
+            <input type="hidden" name="timestamp" id="timestamp" />
+            <!-- honeypot -->
+            <input type="text" name="_gotcha" style="display:none" autocomplete="off" />
+
+            <button class="btn primary" id="reserveBtn" type="submit">Reserve</button>
           </form>
         </div>
       </div>
 
-      <p id="msg" class="trust" style="display:none;margin-top:12px;"></p>
+      <p id="msg" class="trust"></p>
     </section>
 
     <section id="faq">
@@ -449,19 +471,51 @@
   </main>
 
   <script>
-    function fakeSubmit(e){
-      e.preventDefault();
-      const msg = document.getElementById("msg");
-      const input = document.getElementById("email");
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
+    // set initial timestamp
+    document.getElementById("timestamp").value = new Date().toISOString();
+
+    // async submit -> Formspree
+    const form = document.getElementById("preorderForm");
+    const msg = document.getElementById("msg");
+    const emailInput = document.getElementById("email");
+    const reserveBtn = document.getElementById("reserveBtn");
+
+    function showMsg(text){
       msg.style.display = "block";
-      msg.textContent = "Saved — you'll be notified when pre-orders open.";
-
-      input.value = "";
-      return false;
+      msg.textContent = text;
     }
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // refresh timestamp per submit
+      document.getElementById("timestamp").value = new Date().toISOString();
+
+      reserveBtn.disabled = true;
+      showMsg("Saving…");
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          showMsg("Saved — you'll be notified when pre-orders open.");
+          emailInput.value = "";
+        } else {
+          showMsg("Error — please try again in a minute.");
+        }
+      } catch (err) {
+        showMsg("Network error — please try again.");
+      } finally {
+        reserveBtn.disabled = false;
+      }
+    });
   </script>
 </body>
 </html>
