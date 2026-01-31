@@ -1,521 +1,284 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>02100 — Urban Safety Wearable</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Icons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-  <meta name="theme-color" content="#0b0f17">
+<title>02100 — Urban Safety Wearable</title>
 
-  <meta name="description" content="02100 is a discreet urban safety wearable designed to help interrupt the freeze response and support faster action. Join the pre-order list." />
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+<link rel="shortcut icon" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+<meta name="theme-color" content="#0b0f17">
 
-  <style>
-    :root{
-      --bg:#0b0f17;
-      --panel:#0f172a;
-      --text:#e5e7eb;
-      --muted:#a7b0c0;
-      --line:rgba(255,255,255,.10);
-      --accent:#7c3aed;
-      --accent2:#22c55e;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 20% 10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 500px at 80% 0%, rgba(34,197,94,.22), transparent 55%),
-        radial-gradient(1100px 650px at 50% 120%, rgba(255,255,255,.06), transparent 60%),
-        var(--bg);
-      line-height:1.45;
-    }
+<meta name="description" content="02100 is a discreet urban safety wearable designed to help interrupt the freeze response and support faster action. Join the pre-order list." />
 
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+<style>
+:root{
+--bg:#0b0f17;
+--panel:#0f172a;
+--text:#e5e7eb;
+--muted:#a7b0c0;
+--line:rgba(255,255,255,.10);
+--accent:#7c3aed;
+--accent2:#22c55e;
+--shadow:0 20px 60px rgba(0,0,0,.45);
+--radius:18px;
+}
 
-    /* NAV */
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(11,15,23,.65);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:800;
-      letter-spacing:.3px;
-    }
-    .logo{
-      width:36px;height:36px;border-radius:12px;
-      background: linear-gradient(135deg,#7c3aed,#22c55e);
-      box-shadow:0 12px 30px rgba(124,58,237,.25);
-    }
-    .nav-links{
-      display:flex;
-      gap:18px;
-      color:var(--muted);
-      font-weight:600;
-    }
-    .nav-links a:hover{color:var(--text)}
+*{box-sizing:border-box}
+html,body{height:100%}
 
-    /* BUTTONS */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      font-weight:700;
-      transition:.12s ease;
-      cursor:pointer;
-    }
-    .btn:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.06);
-      border-color:rgba(255,255,255,.18);
-    }
-    .btn.primary{
-      background:linear-gradient(135deg,#7c3aed,#5b21b6);
-      border-color:rgba(124,58,237,.6);
-      box-shadow:0 18px 45px rgba(124,58,237,.18);
-    }
-    .btn:disabled{
-      opacity:.65;
-      cursor:not-allowed;
-      transform:none;
-    }
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+color:var(--text);
+background:
+radial-gradient(900px 500px at 20% 10%, rgba(124,58,237,.35), transparent 60%),
+radial-gradient(900px 500px at 80% 0%, rgba(34,197,94,.22), transparent 55%),
+radial-gradient(1100px 650px at 50% 120%, rgba(255,255,255,.06), transparent 60%),
+var(--bg);
+line-height:1.45;
+}
 
-    /* HERO */
-    .hero{padding:56px 0}
-    .grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:26px;
-      align-items:stretch;
-    }
-    .kicker{
-      display:inline-flex;
-      gap:10px;
-      padding:8px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-      font-weight:600;
-      width:fit-content;
-    }
-    .dot{width:8px;height:8px;border-radius:99px;background:var(--accent2)}
-    h1{
-      font-size:52px;
-      line-height:1.05;
-      margin:14px 0 12px;
-      letter-spacing:-.8px;
-    }
-    .sub{
-      color:var(--muted);
-      font-size:18px;
-      max-width:54ch;
-    }
-    .cta-row{
-      display:flex;
-      gap:12px;
-      margin-top:22px;
-      flex-wrap:wrap;
-    }
-    .trust{
-      margin-top:18px;
-      color:var(--muted);
-      font-size:14px;
-      font-weight:600;
-    }
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:24px}
 
-    /* PANEL */
-    .panel{
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: var(--radius);
-      background:
-        radial-gradient(700px 380px at 20% 10%, rgba(124,58,237,.18), transparent 60%),
-        radial-gradient(700px 380px at 80% 0%, rgba(34,197,94,.12), transparent 55%),
-        linear-gradient(180deg, rgba(9,13,22,.95), rgba(10,16,28,.78));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .panel-inner{padding:18px}
+/* NAV */
+.nav{
+position:sticky;
+top:0;
+z-index:50;
+backdrop-filter:blur(10px);
+background:rgba(11,15,23,.65);
+border-bottom:1px solid var(--line);
+}
 
-    /* HERO IMAGE */
-    .hero-image{
-      width:100%;
-      height:auto;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow:0 20px 50px rgba(0,0,0,.45);
-      display:block;
-    }
-    .hero-caption{
-      margin:10px 0 0;
-      color: rgba(167,176,192,.96);
-      font-size:13px;
-      font-weight:650;
-      line-height:1.45;
-    }
-    .hero-caption a{
-      color: rgba(197,166,255,.98);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-weight:800;
-    }
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:16px;
+}
 
-    /* SECTIONS */
-    section{padding:36px 0}
-    .section-title{font-size:22px;margin:0 0 10px;letter-spacing:-.3px;color:#fff}
-    .section-sub{color: rgba(195,205,220,.95);margin:0 0 18px;max-width:70ch}
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:800;
+letter-spacing:.3px;
+}
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .card{
-      padding:16px;
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(12,18,30,.92), rgba(10,15,25,.82));
-      box-shadow: 0 18px 40px rgba(0,0,0,.45);
-    }
-    .card h3{margin:6px 0 8px;font-size:16px;color:#fff;font-weight:800}
-    .card p{margin:0;color:rgba(210,215,225,.95);line-height:1.45}
+.logo{
+width:36px;
+height:36px;
+border-radius:10px;
+object-fit:cover;
+box-shadow:0 12px 30px rgba(124,58,237,.25);
+}
 
-    /* CTA */
-    .cta-band{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:16px;
-      padding:18px;
-      align-items:center;
-    }
-    .cta-band h2{margin:0;font-size:20px;letter-spacing:-.25px;color:#fff}
-    .cta-band p{margin:6px 0 0;color:rgba(195,205,220,.95)}
-    .form{
-      display:flex;
-      gap:10px;
-      justify-content:flex-end;
-      flex-wrap:wrap;
-    }
-    input{
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.25);
-      color:var(--text);
-      min-width:240px;
-      outline:none;
-    }
-    input:focus{
-      border-color: rgba(124,58,237,.55);
-      box-shadow: 0 0 0 4px rgba(124,58,237,.15);
-    }
+/* BUTTONS */
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:12px 16px;
+border-radius:14px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.04);
+font-weight:700;
+cursor:pointer;
+transition:.12s ease;
+}
 
-    /* message */
-    #msg{
-      display:none;
-      margin-top:12px;
-      color:var(--muted);
-      font-size:14px;
-      font-weight:650;
-    }
+.btn:hover{
+transform:translateY(-1px);
+background:rgba(255,255,255,.06);
+}
 
-    /* Footer */
-    footer{padding:28px 0;color:var(--muted)}
-    .foot{
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      border-top:1px solid var(--line);
-      padding-top:16px;
-      flex-wrap:wrap;
-    }
+.btn.primary{
+background:linear-gradient(135deg,#7c3aed,#5b21b6);
+border-color:rgba(124,58,237,.6);
+box-shadow:0 18px 45px rgba(124,58,237,.18);
+}
 
-    @media(max-width:900px){
-      h1{font-size:42px}
-      .grid{grid-template-columns:1fr}
-      .cta-band{grid-template-columns:1fr}
-      .form{justify-content:flex-start}
-      .cards{grid-template-columns:1fr}
-      .nav-links{display:none}
-    }
-  </style>
+/* CTA */
+.form{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:flex-end;
+}
+
+input{
+padding:12px 14px;
+border-radius:14px;
+border:1px solid var(--line);
+background:rgba(0,0,0,.25);
+color:var(--text);
+min-width:240px;
+}
+
+input:focus{
+border-color:rgba(124,58,237,.55);
+box-shadow:0 0 0 4px rgba(124,58,237,.15);
+outline:none;
+}
+
+/* MESSAGE */
+#msg{
+display:none;
+margin-top:12px;
+font-size:14px;
+font-weight:600;
+color:var(--muted);
+}
+
+/* FOOTER */
+footer{padding:28px 0;color:var(--muted)}
+.foot{
+display:flex;
+justify-content:space-between;
+border-top:1px solid var(--line);
+padding-top:16px;
+flex-wrap:wrap;
+gap:14px;
+}
+
+@media(max-width:900px){
+.nav-links{display:none}
+.form{justify-content:flex-start}
+}
+</style>
 </head>
 
 <body>
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="logo" aria-hidden="true"></span>
-        <span>02100</span>
-      </a>
 
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="#how">How it works</a>
-        <a href="#faq">FAQ</a>
-      </nav>
+<header class="nav">
+<div class="wrap nav-inner">
 
-      <a class="btn primary" href="#cta">Pre-order list</a>
-    </div>
-  </header>
+<a class="brand" href="#top">
+<img src="favicon.png" alt="02100 logo" class="logo">
+<span>02100</span>
+</a>
 
-  <main id="top" class="wrap">
-    <section class="hero">
-      <div class="grid">
-        <div>
-          <div class="kicker">
-            <span class="dot" aria-hidden="true"></span>
-            <span>Pre-orders opening soon</span>
-          </div>
+<nav class="nav-links">
+<a href="#features">Features</a>
+<a href="#how">How it works</a>
+<a href="#faq">FAQ</a>
+</nav>
 
-          <h1>Interrupt the freeze response. Regain control.</h1>
+<a class="btn primary" href="#cta">Pre-order list</a>
 
-          <p class="sub">
-            02100 is a discreet urban safety bracelet designed to help people move from “freeze” to action.
-            It uses controlled EMS plus a brief cold stimulus to disrupt immobility and support intentional movement
-            when seconds matter.
-          </p>
+</div>
+</header>
 
-          <div class="cta-row">
-            <a class="btn primary" href="#cta">Join pre-order list</a>
-            <a class="btn" href="#features">Explore device</a>
-          </div>
+<main id="top" class="wrap">
 
-          <div class="trust">No spam. Early access only.</div>
-        </div>
+<section id="cta">
 
-        <div class="panel" aria-label="Product image panel">
-          <div class="panel-inner">
-            <img
-              class="hero-image"
-              src="Gemini_Generated_Image_bdcp8bbdcp8bbdcp.png"
-              alt="02100 urban safety bracelet concept render"
-            />
+<div class="panel">
+<div class="cta-band">
 
-            <p class="hero-caption">
-              Prototype visuals. Final industrial design may change.
-            </p>
+<div>
+<h2>Join the pre-order list</h2>
+<p>Be notified when production opens.</p>
+</div>
 
-            <p class="hero-caption">
-              <strong>Research context:</strong> Neurobiological studies of acute stress describe how threat can trigger
-              immobility (“freeze”) alongside fight-or-flight responses, helping motivate interventions that restore
-              voluntary movement.
-              <br />
-              Source:
-              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2489204/" target="_blank" rel="noopener noreferrer">
-                The psychobiology of traumatic stress — PubMed Central
-              </a>
-            </p>
-          </div>
-        </div>
+<form
+class="form"
+id="preorderForm"
+action="https://formspree.io/f/mnjveqyv"
+method="POST"
+>
 
-      </div>
-    </section>
+<input
+id="email"
+name="email"
+type="email"
+placeholder="you@email.com"
+required
+/>
 
-    <section id="features">
-      <h2 class="section-title">What 02100 does</h2>
+<input type="hidden" name="source" value="02100-landing" />
+<input type="hidden" id="timestamp" name="timestamp" />
 
-      <p class="section-sub">
-        In high-risk urban situations, some people experience a freeze response that delays movement and decision-making.
-        02100 is designed to safely disrupt immobility using controlled EMS and brief cold exposure, helping users regain
-        intentional movement.
-      </p>
+<input type="text" name="_gotcha" style="display:none" autocomplete="off" />
 
-      <div class="cards">
-        <div class="card">
-          <h3>Freeze interruption</h3>
-          <p>
-            Controlled EMS and brief cold stimulus designed to disrupt immobility and support voluntary movement.
-          </p>
-        </div>
+<button class="btn primary" id="reserveBtn" type="submit">
+Reserve
+</button>
 
-        <div class="card">
-          <h3>Designed for automation</h3>
-          <p>
-            Biometrics and system logic reduce misfires, with fast cancel and manual override.
-          </p>
-        </div>
+</form>
 
-        <div class="card">
-          <h3>Safety-first engineering</h3>
-          <p>
-            Watchdog logic and conservative triggering built around uncertainty.
-          </p>
-        </div>
-      </div>
-    </section>
+</div>
+</div>
 
-    <section id="how">
-      <h2 class="section-title">How it works</h2>
+<p id="msg"></p>
 
-      <div class="cards">
-        <div class="card">
-          <h3>1) Wear</h3>
-          <p>
-            A bracelet designed for continuous skin contact and everyday urban use.
-          </p>
-        </div>
+</section>
 
-        <div class="card">
-          <h3>2) Detect</h3>
-          <p>
-            Heart-rate sensing (PPG) and system logic identify freeze-like states in real time.
-          </p>
-        </div>
+<footer>
+<div class="foot">
+<div>© <span id="year"></span> 02100.</div>
+<div>
+<a href="#top">Top</a>
+<a href="#cta">Pre-order</a>
+</div>
+</div>
+</footer>
 
-        <div class="card">
-          <h3>3) Interrupt + regain control</h3>
-          <p>
-            EMS and cold-plate stimulation help disrupt immobility and support a transition back to action.
-          </p>
-        </div>
-      </div>
-    </section>
+</main>
 
-    <section id="cta">
-      <div class="panel">
-        <div class="cta-band">
-          <div>
-            <h2>Join the pre-order list</h2>
-            <p>Be notified when production opens.</p>
-          </div>
+<script>
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
-          <!-- FORM: Formspree -->
-          <form class="form" id="preorderForm" action="https://formspree.io/f/mnjveqyv" method="POST">
-            <label style="display:none" for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@email.com" required />
+document.getElementById("timestamp").value =
+new Date().toISOString();
 
-            <!-- metadata -->
-            <input type="hidden" name="source" value="02100-landing" />
-            <input type="hidden" name="timestamp" id="timestamp" />
-            <!-- honeypot -->
-            <input type="text" name="_gotcha" style="display:none" autocomplete="off" />
+const form = document.getElementById("preorderForm");
+const msg = document.getElementById("msg");
+const emailInput = document.getElementById("email");
+const btn = document.getElementById("reserveBtn");
 
-            <button class="btn primary" id="reserveBtn" type="submit">Reserve</button>
-          </form>
-        </div>
-      </div>
+function showMsg(text){
+msg.style.display = "block";
+msg.textContent = text;
+}
 
-      <p id="msg" class="trust"></p>
-    </section>
+form.addEventListener("submit", async (e)=>{
+e.preventDefault();
 
-    <section id="faq">
-      <h2 class="section-title">FAQ</h2>
+document.getElementById("timestamp").value =
+new Date().toISOString();
 
-      <div class="cards">
-        <div class="card">
-          <h3>What problem are you solving?</h3>
-          <p>
-            In high-risk urban situations, some people experience a freeze response rather than fight-or-flight, delaying
-            movement and decision-making when seconds matter. 02100 is designed to help interrupt this immobility using
-            controlled physical stimuli and system automation, supporting a faster return to intentional action and situational awareness.
-          </p>
-        </div>
+btn.disabled = true;
+showMsg("Saving…");
 
-        <div class="card">
-          <h3>Is this a medical device?</h3>
-          <p>
-            02100 is a consumer personal-safety wearable. It is not a medical device and is not intended to diagnose, treat,
-            cure, mitigate, or prevent any disease or medical condition.
-          </p>
-        </div>
+try{
+const res = await fetch(form.action,{
+method:"POST",
+body:new FormData(form),
+headers:{ "Accept":"application/json" }
+});
 
-        <div class="card">
-          <h3>What’s next?</h3>
-          <p>
-            Next milestones include finalizing the production-ready hardware design, expanding automation and safety logic,
-            running structured user-testing protocols, developing the companion mobile application, and preparing manufacturing
-            and supply-chain operations for launch.
-          </p>
-        </div>
-      </div>
-    </section>
+if(res.ok){
+showMsg("Saved — you'll be notified when pre-orders open.");
+emailInput.value="";
+}else{
+showMsg("Error — please try again shortly.");
+}
 
-    <footer>
-      <div class="foot">
-        <div>© <span id="year"></span> 02100.</div>
-        <div style="display:flex; gap:14px;">
-          <a href="#top">Top</a>
-          <a href="#features">Features</a>
-          <a href="#cta">Pre-order</a>
-        </div>
-      </div>
-    </footer>
-  </main>
+}catch{
+showMsg("Network error — please retry.");
+}finally{
+btn.disabled=false;
+}
+});
+</script>
 
-  <script>
-    // footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // set initial timestamp
-    document.getElementById("timestamp").value = new Date().toISOString();
-
-    // async submit -> Formspree
-    const form = document.getElementById("preorderForm");
-    const msg = document.getElementById("msg");
-    const emailInput = document.getElementById("email");
-    const reserveBtn = document.getElementById("reserveBtn");
-
-    function showMsg(text){
-      msg.style.display = "block";
-      msg.textContent = text;
-    }
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      // refresh timestamp per submit
-      document.getElementById("timestamp").value = new Date().toISOString();
-
-      reserveBtn.disabled = true;
-      showMsg("Saving…");
-
-      try {
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          headers: { "Accept": "application/json" }
-        });
-
-        if (res.ok) {
-          showMsg("Saved — you'll be notified when pre-orders open.");
-          emailInput.value = "";
-        } else {
-          showMsg("Error — please try again in a minute.");
-        }
-      } catch (err) {
-        showMsg("Network error — please try again.");
-      } finally {
-        reserveBtn.disabled = false;
-      }
-    });
-  </script>
 </body>
 </html>
