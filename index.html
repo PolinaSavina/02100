@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>02100 — Urban Safety Wearable</title>
-  <meta name="description" content="02100 is a discreet urban safety wearable that helps interrupt the freeze response and regain control. Join the pre-order list." />
+  <meta name="description" content="02100 is a discreet urban safety wearable designed to help interrupt the freeze response and support faster action. Join the pre-order list." />
 
   <style>
     :root{
@@ -138,17 +138,37 @@
       font-weight:600;
     }
 
-    /* PANEL (higher contrast to avoid “white on white”) */
+    /* PANEL (higher contrast, same palette) */
     .panel{
       border: 1px solid rgba(255,255,255,.14);
-      border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(8,12,20,.92), rgba(9,14,24,.72));
+      border-radius: var(--radius);
+      background:
+        radial-gradient(700px 380px at 20% 10%, rgba(124,58,237,.18), transparent 60%),
+        radial-gradient(700px 380px at 80% 0%, rgba(34,197,94,.12), transparent 55%),
+        linear-gradient(180deg, rgba(9,13,22,.95), rgba(10,16,28,.78));
       box-shadow: var(--shadow);
       overflow:hidden;
     }
     .panel-inner{padding:18px}
 
-    /* Story module */
+    /* Optional hero image */
+    .hero-image{
+      width:100%;
+      height:auto;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 20px 50px rgba(0,0,0,.45);
+      display:block;
+    }
+    .hero-caption{
+      margin:10px 0 0;
+      color: rgba(167,176,192,.96);
+      font-size:13px;
+      font-weight:650;
+      line-height:1.4;
+    }
+
+    /* Story module (kept, toned down) */
     .story{
       display:flex;
       flex-direction:column;
@@ -157,18 +177,21 @@
     }
     .story-quote{
       margin:0;
-      padding:14px 14px;
+      padding:16px 16px;
       border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.28);
-      color: var(--text);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.35);
+      color: rgba(229,231,235,.98);
     }
-    .story-quote strong{font-weight:850}
+    .story-quote strong{
+      font-weight:850;
+      color: rgba(255,255,255,.98);
+    }
     .story-meta{
-      color: var(--muted);
+      color: rgba(167,176,192,.96);
       font-weight:650;
       font-size:13px;
-      line-height:1.35;
+      line-height:1.45;
     }
 
     /* Poster-style source card */
@@ -178,42 +201,43 @@
       align-items:flex-start;
       padding:12px;
       border-radius:16px;
-      border:1px dashed rgba(255,255,255,.18);
-      background: rgba(255,255,255,.03);
+      border:1px dashed rgba(255,255,255,.22);
+      background: rgba(255,255,255,.04);
     }
     .poster-img{
       width:88px;
       height:110px;
       border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.16);
       background:
-        linear-gradient(135deg, rgba(124,58,237,.28), rgba(34,197,94,.18)),
+        linear-gradient(135deg, rgba(124,58,237,.30), rgba(34,197,94,.18)),
         rgba(255,255,255,.04);
       display:grid;
       place-items:center;
-      color: rgba(255,255,255,.90);
+      color: rgba(255,255,255,.92);
       font-weight:900;
       letter-spacing:.6px;
       text-transform:uppercase;
       font-size:12px;
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
     .poster-body{display:flex;flex-direction:column;gap:6px}
-    .poster-title{margin:0;font-weight:850}
-    .poster-note{margin:0;color:var(--muted);font-size:13px;font-weight:650}
+    .poster-title{margin:0;font-weight:850;color: rgba(255,255,255,.96)}
+    .poster-note{margin:0;color: rgba(167,176,192,.96);font-size:13px;font-weight:650}
     .poster-link{
-      color: rgba(255,255,255,.92);
-      font-weight:800;
+      display:inline-block;
+      color: rgba(197,166,255,.98);
+      font-weight:850;
       font-size:13px;
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .poster-link:hover{opacity:.9}
+    .poster-link:hover{opacity:.92}
 
     /* SECTIONS */
     section{padding:36px 0}
-    .section-title{font-size:22px;margin:0 0 10px;letter-spacing:-.3px}
-    .section-sub{color:var(--muted);margin:0 0 18px;max-width:70ch}
+    .section-title{font-size:22px;margin:0 0 10px;letter-spacing:-.3px;color:#fff}
+    .section-sub{color: rgba(195,205,220,.95);margin:0 0 18px;max-width:70ch}
 
     .cards{
       display:grid;
@@ -222,12 +246,13 @@
     }
     .card{
       padding:16px;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.14);
       border-radius:var(--radius);
-      background:rgba(255,255,255,.03);
+      background: linear-gradient(180deg, rgba(12,18,30,.92), rgba(10,15,25,.82));
+      box-shadow: 0 18px 40px rgba(0,0,0,.45);
     }
-    .card h3{margin:6px 0 8px;font-size:16px}
-    .card p{margin:0;color:var(--muted)}
+    .card h3{margin:6px 0 8px;font-size:16px;color:#fff;font-weight:800}
+    .card p{margin:0;color:rgba(210,215,225,.95);line-height:1.45}
 
     /* CTA */
     .cta-band{
@@ -237,8 +262,8 @@
       padding:18px;
       align-items:center;
     }
-    .cta-band h2{margin:0;font-size:20px;letter-spacing:-.25px}
-    .cta-band p{margin:6px 0 0;color:var(--muted)}
+    .cta-band h2{margin:0;font-size:20px;letter-spacing:-.25px;color:#fff}
+    .cta-band p{margin:6px 0 0;color:rgba(195,205,220,.95)}
     .form{
       display:flex;
       gap:10px;
@@ -259,6 +284,7 @@
       box-shadow: 0 0 0 4px rgba(124,58,237,.15);
     }
 
+    /* Footer */
     footer{padding:28px 0;color:var(--muted)}
     .foot{
       display:flex;
@@ -311,7 +337,7 @@
 
           <p class="sub">
             02100 is a discreet urban safety bracelet designed to help people move from “freeze” to action.
-            It uses a controlled EMS stimulus plus a brief cold stimulus to disrupt immobility and restore agency,
+            It uses controlled EMS plus a brief cold stimulus to disrupt immobility and support intentional movement
             when seconds matter.
           </p>
 
@@ -323,112 +349,113 @@
           <div class="trust">No spam. Early access only.</div>
         </div>
 
-        <!-- Updated right-side panel: story + sources (NO IPV framing) -->
-        <div class="panel" aria-label="Story + sources panel">
-          <div class="panel-inner story">
-
-            <p class="story-quote">
-              “I thought I would react instantly. Instead, my body went quiet.
-              My hands felt useless. My brain was loud, but my legs didn’t move.
-              Later I kept replaying it and blaming myself for doing nothing.”
-              <br><br>
-              <strong>02100 is built for that exact gap: when intention exists, but action fails.</strong>
+        <!-- Right-side panel: IMAGE (recommended) + small caption -->
+        <div class="panel" aria-label="Product image panel">
+          <div class="panel-inner">
+            <!-- Put your image file into /images/ and update the filename below -->
+            <img class="hero-image" src="images/02100-hero.png" alt="02100 urban safety bracelet concept render" />
+            <p class="hero-caption">
+              Concept render / prototype visuals. Final industrial design may change.
             </p>
-
-            <div class="story-meta">
-              Research on emergency behavior suggests only <strong>10–25%</strong> of people act effectively,
-              while <strong>~65–80%</strong> become stunned or indecisive in the moment. :contentReference[oaicite:1]{index=1}
-              <br>
-              In a threat-stressor study, <strong>13%</strong> reported immobility and <strong>20%</strong> a strong urge to flee,
-              supporting “freeze” as a measurable stress response. :contentReference[oaicite:2]{index=2}
-            </div>
-
-            <div class="poster" aria-label="Sources poster">
-              <div class="poster-img" aria-hidden="true">Sources</div>
-              <div class="poster-body">
-                <p class="poster-title">Evidence behind “freeze”</p>
-                <p class="poster-note">
-                  Emergency behavior distribution + measured immobility in a threat stressor.
-                  This matches our design goal: safely interrupt freeze and restore action. :contentReference[oaicite:3]{index=3}
-                </p>
-                <a class="poster-link" target="_blank" rel="noreferrer"
-                   href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2489204/">
-                  Link: Exploring human freeze responses to a threat stressor (PMC)
-                </a>
-              </div>
-            </div>
-
           </div>
         </div>
+
+        <!-- If you prefer the story block instead of an image, swap the panel above with the block below:
+        <div class="panel" aria-label="Story + sources panel">
+          <div class="panel-inner story">
+            <p class="story-quote">
+              “I expected to react immediately. Instead, my body froze and my movement was delayed.”
+              <br><br>
+              <strong>02100 is designed for the gap between awareness and physical response.</strong>
+            </p>
+            <div class="story-meta">
+              Sources for background research can be linked here (optional).
+            </div>
+          </div>
+        </div>
+        -->
 
       </div>
     </section>
 
     <section id="features">
-  <h2 class="section-title">What 02100 does</h2>
+      <h2 class="section-title">What 02100 does</h2>
 
-  <p class="section-sub">
-    In a high-risk moment, many people don’t get fight-or-flight — they freeze.
-    02100 is designed to safely disrupt immobility using controlled EMS and brief cold exposure,
-    helping users regain intentional movement.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Freeze interruption</h3>
-      <p>
-        Controlled EMS and brief cold stimulus designed to break immobility
-        and restore voluntary movement.
+      <p class="section-sub">
+        In high-risk urban situations, some people experience a freeze response that delays movement and decision-making.
+        02100 is designed to safely disrupt immobility using controlled EMS and brief cold exposure, helping users regain
+        intentional movement.
       </p>
-    </div>
 
-    <div class="card">
-      <h3>Designed for automation</h3>
-      <p>
-        Biometrics and system logic reduce misfires,
-        with fast cancel and manual override.
-      </p>
-    </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Freeze interruption</h3>
+          <p>
+            Controlled EMS and brief cold stimulus designed to disrupt immobility and support voluntary movement.
+          </p>
+        </div>
 
-    <div class="card">
-      <h3>Safety-first engineering</h3>
-      <p>
-        Watchdog logic and conservative triggering
-        built around uncertainty.
-      </p>
-    </div>
-  </div>
-</section>
+        <div class="card">
+          <h3>Designed for automation</h3>
+          <p>
+            Biometrics and system logic reduce misfires, with fast cancel and manual override.
+          </p>
+        </div>
 
- <section id="how">
-  <h2 class="section-title">How it works</h2>
+        <div class="card">
+          <h3>Safety-first engineering</h3>
+          <p>
+            Watchdog logic and conservative triggering built around uncertainty.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <div class="cards">
-    <div class="card">
-      <h3>1) Wear</h3>
-      <p>
-        Bracelet designed for continuous skin contact
-        and urban everyday use.
-      </p>
-    </div>
+    <section id="how">
+      <h2 class="section-title">How it works</h2>
 
-    <div class="card">
-      <h3>2) Detect</h3>
-      <p>
-        Heart-rate sensing (PPG) and system logic
-        identify freeze-like states in real time.
-      </p>
-    </div>
+      <div class="cards">
+        <div class="card">
+          <h3>1) Wear</h3>
+          <p>
+            A bracelet designed for continuous skin contact and everyday urban use.
+          </p>
+        </div>
 
-    <div class="card">
-      <h3>3) Interrupt + regain control</h3>
-      <p>
-        EMS and cold-plate stimulation help disrupt immobility
-        and transition the user back to action.
-      </p>
-    </div>
-  </div>
-</section>
+        <div class="card">
+          <h3>2) Detect</h3>
+          <p>
+            Heart-rate sensing (PPG) and system logic identify freeze-like states in real time.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>3) Interrupt + regain control</h3>
+          <p>
+            EMS and cold-plate stimulation help disrupt immobility and support a transition back to action.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta">
+      <div class="panel">
+        <div class="cta-band">
+          <div>
+            <h2>Join the pre-order list</h2>
+            <p>Be notified when production opens.</p>
+          </div>
+
+          <form class="form" onsubmit="return fakeSubmit(event)">
+            <label style="display:none" for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required />
+            <button class="btn primary" type="submit">Reserve</button>
+          </form>
+        </div>
+      </div>
+
+      <p id="msg" class="trust" style="display:none;margin-top:12px;"></p>
+    </section>
 
     <section id="faq">
       <h2 class="section-title">FAQ</h2>
@@ -436,17 +463,28 @@
       <div class="cards">
         <div class="card">
           <h3>What problem are you solving?</h3>
-          <p>In high-risk urban situations, many people experience a “freeze” response rather than fight-or-flight, delaying movement and decision-making when seconds matter.
-02100 is designed to help interrupt this immobility using controlled physical stimuli and system automation, supporting a faster return to intentional action and situational awareness.</p>
+          <p>
+            In high-risk urban situations, some people experience a freeze response rather than fight-or-flight, delaying
+            movement and decision-making when seconds matter. 02100 is designed to help interrupt this immobility using
+            controlled physical stimuli and system automation, supporting a faster return to intentional action and situational awareness.
+          </p>
         </div>
 
         <div class="card">
           <h3>Is this a medical device?</h3>
-          <p>No. 02100 is a consumer personal-safety wearable. It is not a medical device and is not intended to diagnose, treat, cure, or prevent any disease or medical condition.  </div>
+          <p>
+            02100 is a consumer personal-safety wearable. It is not a medical device and is not intended to diagnose, treat,
+            cure, mitigate, or prevent any disease or medical condition.
+          </p>
+        </div>
 
         <div class="card">
           <h3>What’s next?</h3>
-          <p>Next milestones include finalizing the production-ready hardware design, expanding automation and safety logic, running structured user-testing protocols, developing the companion mobile application, and preparing manufacturing and supply-chain operations for launch.</p>
+          <p>
+            Next milestones include finalizing the production-ready hardware design, expanding automation and safety logic,
+            running structured user-testing protocols, developing the companion mobile application, and preparing manufacturing
+            and supply-chain operations for launch.
+          </p>
         </div>
       </div>
     </section>
@@ -454,7 +492,8 @@
     <footer>
       <div class="foot">
         <div>© <span id="year"></span> 02100.</div>
-        <div style="display:fl:contentReference[oaicite:21]{index=21}    <a href="#top">Top</a>
+        <div style="display:flex; gap:14px;">
+          <a href="#top">Top</a>
           <a href="#features">Features</a>
           <a href="#cta">Pre-order</a>
         </div>
