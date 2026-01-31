@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Name — Landing Page</title>
+  <meta name="description" content="A short, conversion-focused landing page." />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --panel:#0f172a;
+      --text:#e5e7eb;
+      --muted:#a7b0c0;
+      --line:rgba(255,255,255,.10);
+      --accent:#7c3aed;
+      --accent2:#22c55e;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(900px 500px at 80% 0%, rgba(34,197,94,.22), transparent 55%),
+        radial-gradient(1100px 650px at 50% 120%, rgba(255,255,255,.06), transparent 60%),
+        var(--bg);
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1120px; margin:0 auto; padding:24px}
+
+    /* Top nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,23,.65);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px}
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(34,197,94,1));
+      box-shadow: 0 12px 30px rgba(124,58,237,.25);
+    }
+    .nav-links{display:flex; gap:18px; color:var(--muted); font-weight:600}
+    .nav-links a:hover{color:var(--text)}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px; border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:700;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
+    .btn.primary{
+      border-color: rgba(124,58,237,.45);
+      background: linear-gradient(135deg, rgba(124,58,237,.92), rgba(124,58,237,.62));
+      box-shadow: 0 18px 45px rgba(124,58,237,.18);
+    }
+    .btn.primary:hover{border-color: rgba(124,58,237,.70)}
+    .btn.ghost{background: transparent}
+
+    /* Hero */
+    .hero{padding:54px 0 28px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-weight:600;
+      width:fit-content;
+    }
+    .dot{width:8px; height:8px; border-radius:99px; background: var(--accent2)}
+    h1{font-size:52px; line-height:1.03; margin:14px 0 12px; letter-spacing:-.8px}
+    .sub{color:var(--muted); font-size:18px; max-width:52ch}
+    .cta-row{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
+    .trust{margin-top:18px; color:var(--muted); font-weight:600; font-size:14px}
+
+    .panel{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .panel-inner{padding:18px}
+    .mock{
+      height: 100%;
+      min-height: 320px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .mock-top{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .pill{padding:8px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-weight:700; font-size:12px}
+    .bars{display:flex; gap:6px}
+    .bar{width:10px; height:10px; border-radius:999px; border:1px solid var(--line)}
+    .bar:nth-child(1){background: rgba(124,58,237,.35)}
+    .bar:nth-child(2){background: rgba(34,197,94,.25)}
+
+    .metric{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(15,23,42,.55);
+    }
+    .metric .label{color:var(--muted); font-weight:700; font-size:12px}
+    .metric .value{font-size:28px; font-weight:850; margin-top:4px}
+    .metric .hint{color:var(--muted); font-weight:650; font-size:13px; margin-top:6px}
+    .metric-grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+
+    /* Sections */
+    section{padding:34px 0}
+    .section-title{font-size:22px; margin:0 0 10px; letter-spacing:-.3px}
+    .section-sub{color:var(--muted); margin:0 0 18px; max-width:70ch}
+
+    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .card{
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+    }
+    .card h3{margin:6px 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted)}
+    .icon{
+      width:40px; height:40px; border-radius: 14px;
+      display:grid; place-items:center;
+      background: rgba(124,58,237,.18);
+      border: 1px solid rgba(124,58,237,.25);
+    }
+
+    /* CTA band */
+    .cta-band{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      align-items:center;
+      padding:18px;
+    }
+    .cta-band h2{margin:0; font-size:20px; letter-spacing:-.25px}
+    .cta-band p{margin:6px 0 0; color:var(--muted)}
+
+    .form{
+      display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
+    }
+    input{
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      min-width: 240px;
+      outline:none;
+    }
+    input:focus{border-color: rgba(124,58,237,.55); box-shadow: 0 0 0 4px rgba(124,58,237,.15)}
+
+    /* Footer */
+    footer{padding:26px 0 40px; color:var(--muted)}
+    .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:16px}
+
+    /* Mobile */
+    @media (max-width: 920px){
+      h1{font-size:42px}
+      .grid{grid-template-columns: 1fr;}
+      .cta-band{grid-template-columns: 1fr}
+      .form{justify-content:flex-start}
+      .cards{grid-template-columns: 1fr}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Project Name</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a class="btn ghost" href="#faq">Learn more</a>
+        <a class="btn primary" href="#cta">Get updates</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="grid">
+        <div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Shipping soon — early access list open</span></div>
+          <h1>A clean landing page that sells your idea in 30 seconds.</h1>
+          <p class="sub">Use this template for a product, game, or startup. Swap the copy, drop your logo, and you have a credible page that can collect emails.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#cta">Join the waitlist</a>
+            <a class="btn" href="#features">See features</a>
+          </div>
+          <div class="trust">No spam. One email when you launch.</div>
+        </div>
+
+        <div class="panel" aria-label="Product preview">
+          <div class="panel-inner mock">
+            <div class="mock-top">
+              <div class="pill">Live preview</div>
+              <div class="bars" aria-hidden="true">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+              </div>
+            </div>
+            <div class="metric-grid">
+              <div class="metric">
+                <div class="label">Conversion-ready</div>
+                <div class="value">3 sections</div>
+                <div class="hint">Hero, value props, CTA</div>
+              </div>
+              <div class="metric">
+                <div class="label">Setup time</div>
+                <div class="value">10 min</div>
+                <div class="hint">Replace text, deploy</div>
+              </div>
+              <div class="metric">
+                <div class="label">Responsive</div>
+                <div class="value">Mobile</div>
+                <div class="hint">Works on small screens</div>
+              </div>
+              <div class="metric">
+                <div class="label">No build tools</div>
+                <div class="value">1 file</div>
+                <div class="hint">Just HTML + CSS</div>
+              </div>
+            </div>
+            <div class="metric" style="border-style:dashed;">
+              <div class="label">Replace this box</div>
+              <div class="hint">Put a screenshot, trailer, or product mock here.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2 class="section-title">Features that matter</h2>
+      <p class="section-sub">This structure is intentionally minimal. It answers: what is it, why should I care, and what do I do next.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="icon" aria-hidden="true">▦</div>
+          <h3>Clear value props</h3>
+          <p>Three cards: pain solved, benefit delivered, proof/credibility.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">◷</div>
+          <h3>Fast loading</h3>
+          <p>No frameworks, no heavy assets, no dependency chains.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">✦</div>
+          <h3>Modern visual style</h3>
+          <p>Dark gradient, subtle borders, soft shadows, large type.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">Keep this tight. If your product needs a long explanation, the page will leak attention.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>1) One-sentence promise</h3>
+          <p>Say what the user gets. Avoid internal jargon.</p>
+        </div>
+        <div class="card">
+          <h3>2) Three benefits</h3>
+          <p>Make them measurable or concrete: time saved, risk reduced, clarity gained.</p>
+        </div>
+        <div class="card">
+          <h3>3) Single action</h3>
+          <p>Waitlist, demo request, or purchase. Don’t split attention.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta">
+      <div class="panel">
+        <div class="cta-band">
+          <div>
+            <h2>Get launch updates</h2>
+            <p>Drop your email. Replace this with your real newsletter provider later.</p>
+          </div>
+          <form class="form" onsubmit="return fakeSubmit(event)">
+            <label style="display:none" for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@domain.com" required />
+            <button class="btn primary" type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <p id="msg" class="trust" style="display:none; margin-top:12px;"></p>
+    </section>
+
+    <section id="faq">
+      <h2 class="section-title">FAQ</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Can I deploy this quickly?</h3>
+          <p>Yes. Save as <strong>index.html</strong> and host on GitHub Pages, Netlify, Vercel, or any static host.</p>
+        </div>
+        <div class="card">
+          <h3>Where do I add analytics?</h3>
+          <p>Paste your tracking script right before <strong>&lt;/head&gt;</strong> (Plausible, GA4, etc.).</p>
+        </div>
+        <div class="card">
+          <h3>How do I connect email capture?</h3>
+          <p>Replace the form handler with your provider (Mailchimp, ConvertKit, Buttondown) or a small serverless function.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot">
+        <div>© <span id="year"></span> Project Name. All rights reserved.</div>
+        <div style="display:flex; gap:14px;">
+          <a href="#top">Back to top</a>
+          <a href="#features">Features</a>
+          <a href="#cta">Waitlist</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Minimal, no-backend demo submit.
+    function fakeSubmit(e){
+      e.preventDefault();
+      const input = document.getElementById('email');
+      const msg = document.getElementById('msg');
+      msg.style.display = 'block';
+      msg.textContent = `Saved: ${input.value}. (Demo only — connect a real provider to collect emails.)`;
+      input.value = '';
+      return false;
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
